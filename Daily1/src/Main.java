@@ -3,9 +3,16 @@
 public class Main {
     public static void main(String[] args)
     {
+        // neues Konto
         BankKonto konto = new BankKonto();
-
-        konto.einzahlen(100.00);
         konto.kontostandAnzeigen();
+
+        // Dispo methode
+        konto.abheben(50.00);
+        konto.kontostandAnzeigen();
+
+        // Dispo Limit
+        konto.abheben(51.00);
+
     }
 }

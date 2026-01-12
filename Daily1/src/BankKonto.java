@@ -1,6 +1,10 @@
+import java.util.concurrent.ExecutionException;
+
 public class BankKonto
 {
     double kontostand;
+
+    double dispoLimit = 100;
 
     public void einzahlen(double betrag)
     {
@@ -11,5 +15,16 @@ public class BankKonto
     public void kontostandAnzeigen()
     {
         System.out.printf("Dein Kontostand: %.2f CHF%n", kontostand);
+    }
+
+    public boolean abheben(double betrag)
+    {
+        if (kontostand + dispoLimit >= betrag ) {
+            kontostand -= betrag;
+            return true;
+        } else {
+            System.out.println("Saldo zu klein!");
+            return false;
+        }
     }
 }
